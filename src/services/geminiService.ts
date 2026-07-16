@@ -54,7 +54,7 @@ export const generateThumbnailImage = async (prompt: string): Promise<string> =>
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   
   const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash-image',
+    model: 'gemini-3.1-flash-lite-image',
     contents: {
       parts: [
         { text: `High quality photorealistic youtube thumbnail background, professional lighting, no text, no logos, based on this concept: ${prompt}` }
@@ -88,7 +88,7 @@ export const editImageToRemoveText = async (base64Image: string): Promise<string
   const data = matches[2];
 
   const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash-image',
+    model: 'gemini-3.1-flash-lite-image',
     contents: {
       parts: [
         {
